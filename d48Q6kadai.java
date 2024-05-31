@@ -31,7 +31,7 @@ class Match {
 		int teamAPoints = winPoint(teamA.point, teamB.point, teamA.tryNumber);
 		int teamBPoints = winPoint(teamB.point, teamA.point, teamB.tryNumber);
 		
-		String result = "Team A: " + teamAPoints + ", Team B: " + teamBPoints + ". ";
+		String result = "Team A: " + teamAPoints + ", Team B: " + teamBPoints + "\n";
 		
 		if (teamAPoints > teamBPoints) {
 			result += "チームAの勝利！";
