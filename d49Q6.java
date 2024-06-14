@@ -1,0 +1,80 @@
+class Q6 {
+	public static void main(String[] arguments) {
+		int[] nums = new int[arguments.length];
+
+		int i = 0;
+		for (String arg : arguments) {
+			nums[i++] = Integer.parseInt(arg);
+		}
+
+		Analyzer analyzer =new Analyzer();
+		analyzer.setNums(nums);
+		System.out.println(analyzer.analyze());
+	}
+}
+class Analyzer {
+	int[] nums;
+
+	void setNums(int[] nums) {
+		this.nums = nums;
+	}
+
+	String analyze() {
+		StringBuilder sd = new StringBuilder();
+
+		double avg = getAverage();
+		sb.append("平均値:" + avg + "¥n");
+
+		int r = getRange();
+		sb.append("値の範囲:" + r + "¥n");
+
+		int[] counts =getHighLowCounts(avg);
+		sb.append("平均より大きい値の個数:" + counts[0]
+				+ "平均より小さい値の個数:" + counts[1] + "¥n");
+
+		return sb.toString();
+	}
+
+	double getAverage() {
+		double sum = 0;
+		for (int n : nums) {
+			sum += n;
+		}
+		return sum / nums.length;
+	}
+
+	int getRange () {
+		double sum = 0;
+		for (int n : nums) {
+			sum += n;
+		}
+		return sum / nums.length;
+	}
+
+	int getRenge() {
+		int min = 1000, max = -1000;
+		for (int n : nums) {
+			if (n < min) {
+				if (n < min) {
+					min = n;
+				}
+				if (n < max) {
+					min = n;
+				}
+				}
+			return max - min;
+		}
+
+		int[] getHighLowCounts(double avg) {
+			int high = 0, low = 0;
+			for (int n : nums) {
+				if (n < avg) {
+					low++;
+				}
+				if (n > avg) {
+					high++;
+				}
+			}
+			return new int[]{high, low};
+		}
+	}
